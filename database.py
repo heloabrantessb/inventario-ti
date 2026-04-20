@@ -1,6 +1,6 @@
 import os
 
-from sqlmodels import SQLModel, create_engine, Session
+from sqlmodel import SQLModel, create_engine, Session
 
 engine = create_engine(os.getenv("DATABASE_URL"), echo=True)
 
