@@ -12,10 +12,6 @@ class TipoEquipamento(enum.Enum):
     SERVIDOR = "Servidor"
     OUTRO = "Outro"
 
-class StatusEquipamento(enum.Enum):
-    ATIVO = "Ativo"
-    EM_MANUTENCAO = "Em Manutenção"
-    DESATIVADO = "Desativado"
 
 class Equipamento(SQLModel, table=True):
     __tablename__ = "equipamentos"
@@ -33,8 +29,6 @@ class Equipamento(SQLModel, table=True):
     data_aquisicao: datetime | None = None
     ultima_manutencao: datetime | None = None
     periodicidade_dias: int
-
-    status: StatusEquipamento = Field(default=StatusEquipamento.ATIVO)
     ativo: bool = Field(default=True)
 
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
